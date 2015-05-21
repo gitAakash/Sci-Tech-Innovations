@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.corner.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    @*@Styles.Render("~/Content/css")*@
+    <script>
+    new WOW().init();
+    </script>
+    <script src="~/Scripts/move-top.js"></script>
+    <script src="~/Scripts/easing.js"></script>
+
+    <script src="~/Scripts/jquery.mixitup.min.js"></script>
+    <link href="~/Content/owl.carousel.css" rel="stylesheet" />
+    <script src="~/Scripts/owl.carousel.js"></script>
+
+    <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+        });
+    });
+    </script>
+    @*<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>*@
+    @Scripts.Render("~/bundles/modernizr")
+    <script>
+    $(function () {
+        var pull = $('#pull');
+        menu = $('nav ul');
+        menuHeight = menu.height();
+        $(pull).on('click', function (e) {
+            e.preventDefault();
+            menu.slideToggle();
+        });
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 320 && menu.is(':hidden')) {
+                menu.removeAttr('style');
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="bg">
+        <!----- start-header---->
+        <div class="container">
+            <div id="home" class="header wow bounceInDown" data-wow-delay="0.4s">
+                <div class="top-header">
+                    <div class="logo">
+                        <a href="#">Sci-Tech Innovations
+                        <br><span class="pull-right" style="font-size: 20px;">a scientific deal...</span></a>
+                    </div>
+                    <!----start-top-nav---->
+                    <nav class="top-nav">
+                        <ul class="top-nav">
+                            <li><a href="#about" class="scroll">about</a></li>
+                            <li><a href="#process" class="scroll">products</a></li>
+                            <li><a href="#port" class="scroll">portfolio</a></li>
+                            <li class="page-scroll"><a href="#contact" class="scroll">contact</a></li>
+                            <li class="active-join" class="page-scroll"><a href="#team" class="scroll">join us</a></li>
+                        </ul>
+                        <a href="#" id="pull"><img src="/images/nav-icon.png" title="menu" /></a>
+                    </nav>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <!----- //End-header---->
+        <!---- banner-info ---->
+        <div class="banner-info">
+            <div class="container">
+                <h1 class="wow fadeIn" data-wow-delay="0.5s"><span>we are</span><br /><label>Product Company</label></h1>
+                <div class="top-banner-grids wow bounceInUp" data-wow-delay="0.4s">
+                    <div class="banner-grid text-center">
+                        <span class="top-icon1"> </span>
+                        <h3>analytics</h3>
+                    </div>
+                    <div class="banner-grid banner-grid-active text-center">
+                        <span class="top-icon2"> </span>
+                        <h3>strategy</h3>
+                    </div>
+                    <div class="banner-grid text-center">
+                        <span class="top-icon3"> </span>
+                        <h3>branding</h3>
+                    </div>
+                    <div class="banner-grid text-center">
+                        <span class="top-icon4"> </span>
+                        <h3>promotion</h3>
+                    </div>
+                    <div class="banner-grid text-center">
+                        <span class="top-icon5"> </span>
+                        <h3>sales</h3>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="top-grids text-center">
+        <div class="container">
+            @RenderBody()
+            
+        </div>
+        <div class="clearfix"> </div>
+        <!---- footer --->
+        <div class="footer text-center">
+            <div class="container">
+                <div class="footer-inner wow zoomIn" data-wow-delay="0.3s">
+                    <ul>
+                        <li><a href="#"><img src="/images/footer-logo.png" title="Sci-Tech Innovations" /></a></li>
+                        <li><a class="contact-me" href="#">contact us</a></li>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        /*
+                        var defaults = {
+                            containerID: 'toTop', // fading element id
+                            containerHoverID: 'toTopHover', // fading element hover id
+                            scrollSpeed: 1200,
+                            easingType: 'linear'
+                        };
+                        */
+
+                        $().UItoTop({ easingType: 'easeOutQuart' });
+
+                    });
+                </script>
+                <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+            </div>
+        </div>
+
+    </div>
+        @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+        @RenderSection("scripts", required: false)
+</body>
+</html>
